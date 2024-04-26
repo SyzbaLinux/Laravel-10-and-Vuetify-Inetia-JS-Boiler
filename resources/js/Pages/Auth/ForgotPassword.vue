@@ -25,37 +25,36 @@ const submit = () => {
     <GuestLayout>
         <Head title="Forgot Password" />
 
-        <div class="mb-4 text-sm text-gray-600">
-            Forgot your password? No problem. Just let us know your email address and we will email you a password reset
-            link that will allow you to choose a new one.
-        </div>
-
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
-        </div>
-
         <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="email" value="Email" />
+            <v-card class="glass mx-auto mt-10" max-width="500">
+                <v-card-title class="text-center mt-5">
+                    Forgot Password?
+                </v-card-title>
 
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autofocus
-                    autocomplete="username"
-                />
+                <p class="pa-5 text-center">
+                    Forgot your password? No problem. Just let us know your email address and we will email you a password reset
+                    link that will allow you to choose a new one.
+                </p>
 
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
+                <v-card-text>
+                        <v-text-field
+                            id="email"
+                            type="email"
+                            label="Email"
+                            v-model="form.email"
+                            required
+                            autofocus
+                            autocomplete="username"
+                            :error-messages="form.errors.email"
+                        />
+                </v-card-text>
 
-            <div class="flex items-center justify-end mt-4">
-                <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Email Password Reset Link
-                </PrimaryButton>
-            </div>
+                <v-card-actions class="px-3 mb-5">
+                    <v-btn type="submit" variant="flat" block size="x-large" :loading="form.processing">
+                        Email Password Reset Link
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
         </form>
     </GuestLayout>
 </template>

@@ -2,10 +2,18 @@
     <v-app>
         <v-app-bar>
             <v-toolbar-title>
-                Welcome
+                <InertiaLink class="InertiaLink" href="/">
+                    Welcome
+                </InertiaLink>
             </v-toolbar-title>
 
             <v-spacer/>
+
+            <InertiaLink  href="/">
+                <v-btn color="primary" >
+                   <v-icon icon="mdi-home"/> Home
+                </v-btn>
+            </InertiaLink>
 
             <InertiaLink  href="/login">
                 <v-btn color="primary" >
